@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spice Junction — Order Online</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,900&family=Space+Mono:wght@400;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- ============ RESTAURANT HEADER ============ -->
+<header class="site-header">
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-mark">SJ</span>
+      <div class="brand-text">
+        <h1>Spice Junction</h1>
+        <p class="tagline">Tiffin to feast, ordered in a tap</p>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="dot"></span>
+      <span>Open now · 11:00 AM – 11:00 PM</span>
+    </div>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ FOOD MENU ============ -->
+  <section class="menu-section" id="menu">
+    <div class="section-heading">
+      <span class="eyebrow">Today's Menu</span>
+      <h2>Pick your plate</h2>
+    </div>
+
+    <div class="menu-grid" id="menuGrid">
+      <!-- Menu cards injected by JS -->
+    </div>
+  </section>
+
+  <!-- ============ CUSTOMER DETAILS FORM ============ -->
+  <section class="details-section" id="details">
+    <div class="section-heading">
+      <span class="eyebrow">Customer Details</span>
+      <h2>Who's this for?</h2>
+    </div>
+
+    <form class="details-form" id="detailsForm" novalidate>
+      <div class="field">
+        <label for="custName">Name</label>
+        <input type="text" id="custName" name="custName" placeholder="Arun Kumar" autocomplete="name">
+        <span class="field-error" id="err-custName"></span>
+      </div>
+
+      <div class="field">
+        <label for="custMobile">Mobile Number</label>
+        <input type="tel" id="custMobile" name="custMobile" placeholder="98765 43210" autocomplete="tel" maxlength="10">
+        <span class="field-error" id="err-custMobile"></span>
+      </div>
+
+      <div class="field field-wide">
+        <label for="custAddress">Address</label>
+        <textarea id="custAddress" name="custAddress" rows="2" placeholder="Door No, Street, Area, City"></textarea>
+        <span class="field-error" id="err-custAddress"></span>
+      </div>
+
+      <button type="submit" class="btn-primary" id="placeOrderBtn">
+        Place Order
+      </button>
+    </form>
+  </section>
+
+  <!-- ============ ORDER SUMMARY ============ -->
+  <section class="summary-section" id="summary">
+    <div class="section-heading">
+      <span class="eyebrow">Order Summary</span>
+      <h2>Your bill</h2>
+    </div>
+
+    <div class="ticket-wrap">
+      <div class="ticket" id="ticket">
+        <div class="ticket-empty" id="ticketEmpty">
+          <p>Nothing ordered yet.</p>
+          <p class="ticket-empty-sub">Choose items above and place your order to see the summary here.</p>
+        </div>
+
+        <div class="ticket-content" id="ticketContent" hidden>
+          <div class="ticket-row">
+            <span>Customer:</span>
+            <span id="ticketCustomer">—</span>
+          </div>
+
+          <div class="ticket-divider"></div>
+
+          <div class="ticket-items" id="ticketItems">
+            <!-- item lines injected by JS -->
+          </div>
+
+          <div class="ticket-divider dashed"></div>
+
+          <div class="ticket-row ticket-total">
+            <span>Grand Total</span>
+            <span id="ticketGrandTotal">₹0</span>
+          </div>
+
+          <p class="ticket-thanks" id="ticketThanks">Thank You for Ordering!</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <p>&copy; 2026 Spice Junction.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

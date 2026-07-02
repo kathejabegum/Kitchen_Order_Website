@@ -1,0 +1,391 @@
+/* ===========================================================
+   Spice Junction — Online Food Ordering System
+   Modern restaurant theme: espresso background, turmeric &
+   chili accents, Fraunces display type + Inter body type.
+   =========================================================== */
+
+* { box-sizing: border-box; }
+
+:root{
+  --ink: #1B1410;
+  --ink-2: #241A14;
+  --ink-3: #2F2319;
+  --line: #4a382c;
+  --cream: #FBF3E7;
+  --cream-dim: #cbb8a4;
+  --turmeric: #E8A33D;
+  --turmeric-dim: #B87F2C;
+  --chili: #C1432E;
+  --curry: #6FA57C;
+  --radius: 14px;
+}
+
+html{ scroll-behavior: smooth; }
+
+body{
+  margin: 0;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2 { font-family: 'Fraunces', serif; margin: 0; }
+
+/* ============ HEADER ============ */
+
+.site-header{
+  background: linear-gradient(180deg, #241811 0%, var(--ink) 100%);
+  border-bottom: 1px solid var(--line);
+  padding: 22px 6vw;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.header-inner{
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.brand{ display: flex; align-items: center; gap: 14px; }
+
+.brand-mark{
+  width: 46px; height: 46px;
+  border-radius: 50%;
+  background: conic-gradient(from 210deg, var(--turmeric), var(--chili), var(--turmeric));
+  color: var(--ink);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Fraunces', serif;
+  font-weight: 900;
+  font-size: 17px;
+  flex-shrink: 0;
+}
+
+.brand-text h1{
+  font-size: clamp(22px, 3vw, 28px);
+  font-weight: 700;
+}
+
+.tagline{
+  margin: 2px 0 0;
+  font-size: 13px;
+  color: var(--cream-dim);
+  font-style: italic;
+}
+
+.header-meta{
+  display: flex; align-items: center; gap: 8px;
+  font-size: 13px;
+  color: var(--cream-dim);
+}
+
+.dot{
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--curry);
+  box-shadow: 0 0 0 3px rgba(111,165,124,0.2);
+}
+
+/* ============ LAYOUT ============ */
+
+main{ max-width: 1000px; margin: 0 auto; padding: 0 6vw; }
+
+section{ padding: 56px 0 8px; }
+
+.section-heading{ margin-bottom: 28px; }
+
+.eyebrow{
+  display: inline-block;
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--turmeric);
+  margin-bottom: 8px;
+}
+
+.section-heading h2{
+  font-size: clamp(24px, 3.4vw, 34px);
+  font-weight: 600;
+}
+
+/* ============ MENU CARDS ============ */
+
+.menu-grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 18px;
+}
+
+.menu-card{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.menu-card:hover{
+  transform: translateY(-3px);
+  border-color: var(--turmeric-dim);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.35);
+}
+
+.menu-card.is-selected{
+  border-color: var(--turmeric);
+  box-shadow: 0 0 0 1px var(--turmeric) inset;
+}
+
+.menu-card-top{
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.menu-card-emoji{ font-size: 30px; line-height: 1; }
+
+.menu-card-name{
+  font-family: 'Fraunces', serif;
+  font-size: 19px;
+  font-weight: 600;
+  margin: 0 0 2px;
+}
+
+.menu-card-price{
+  font-family: 'Space Mono', monospace;
+  color: var(--turmeric);
+  font-size: 14px;
+}
+
+.menu-card-controls{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: auto;
+  padding-top: 10px;
+  border-top: 1px dashed var(--line);
+}
+
+.check-label{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 13px;
+  color: var(--cream-dim);
+  user-select: none;
+}
+
+.check-label input[type="checkbox"]{
+  appearance: none;
+  width: 20px; height: 20px;
+  border: 2px solid var(--line);
+  border-radius: 6px;
+  background: var(--ink);
+  cursor: pointer;
+  position: relative;
+  transition: border-color 0.15s ease, background 0.15s ease;
+  flex-shrink: 0;
+}
+
+.check-label input[type="checkbox"]:checked{
+  background: var(--turmeric);
+  border-color: var(--turmeric);
+}
+
+.check-label input[type="checkbox"]:checked::after{
+  content: "";
+  position: absolute;
+  left: 6px; top: 2px;
+  width: 5px; height: 10px;
+  border: solid var(--ink);
+  border-width: 0 2px 2px 0;
+  transform: rotate(40deg);
+}
+
+.qty-stepper{
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.qty-stepper button{
+  width: 28px; height: 28px;
+  background: var(--ink-3);
+  color: var(--cream);
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+  font-family: 'Space Mono', monospace;
+  transition: background 0.15s ease;
+}
+
+.qty-stepper button:hover{ background: var(--turmeric-dim); color: var(--ink); }
+
+.qty-stepper input{
+  width: 34px;
+  text-align: center;
+  border: none;
+  background: var(--ink);
+  color: var(--cream);
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+  padding: 5px 0;
+}
+
+.qty-stepper input:focus{ outline: none; }
+
+/* ============ CUSTOMER FORM ============ */
+
+.details-form{
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 28px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px 20px;
+}
+
+.field{ display: flex; flex-direction: column; gap: 6px; }
+.field-wide{ grid-column: 1 / -1; }
+
+.field label{
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--cream-dim);
+}
+
+.field input, .field textarea{
+  background: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 11px 13px;
+  color: var(--cream);
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  resize: vertical;
+  transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.field input:focus, .field textarea:focus{
+  outline: none;
+  border-color: var(--turmeric);
+  box-shadow: 0 0 0 3px rgba(232,163,61,0.18);
+}
+
+.field.has-error input, .field.has-error textarea{ border-color: var(--chili); }
+
+.field-error{
+  min-height: 15px;
+  font-size: 12px;
+  color: var(--chili);
+}
+
+.btn-primary{
+  grid-column: 1 / -1;
+  justify-self: start;
+  background: var(--turmeric);
+  color: var(--ink);
+  border: none;
+  border-radius: 999px;
+  padding: 13px 30px;
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 15px;
+  cursor: pointer;
+  transition: background 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
+  box-shadow: 0 6px 18px rgba(232,163,61,0.22);
+}
+
+.btn-primary:hover{
+  background: #f2b458;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(232,163,61,0.32);
+}
+
+.btn-primary:active{ transform: translateY(0); }
+
+/* ============ ORDER SUMMARY ============ */
+
+.ticket-wrap{ display: flex; justify-content: center; }
+
+.ticket{
+  width: 100%;
+  max-width: 380px;
+  background: var(--ink-2);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 26px 24px;
+  font-family: 'Space Mono', monospace;
+  font-size: 14px;
+}
+
+.ticket-empty{ text-align: center; padding: 20px 6px; color: var(--cream-dim); }
+.ticket-empty p{ margin: 4px 0; }
+.ticket-empty-sub{ font-size: 12px; }
+
+.ticket-row{
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 2px 0;
+}
+
+.ticket-divider{ border-top: 1px solid var(--line); margin: 12px 0; }
+.ticket-divider.dashed{ border-top: 1px dashed var(--line); }
+
+.ticket-items{ display: flex; flex-direction: column; gap: 6px; }
+
+.ticket-total{
+  font-weight: 700;
+  font-size: 17px;
+  color: var(--turmeric);
+}
+
+.ticket-thanks{
+  text-align: center;
+  font-weight: 700;
+  font-size: 15px;
+  margin: 16px 0 0;
+  color: var(--curry);
+}
+
+/* ============ FOOTER ============ */
+
+.site-footer{
+  margin-top: 60px;
+  padding: 26px 6vw 40px;
+  text-align: center;
+  font-size: 12px;
+  color: var(--cream-dim);
+  border-top: 1px solid var(--line);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 640px){
+  .details-form{ grid-template-columns: 1fr; padding: 20px; }
+  section{ padding: 40px 0 4px; }
+  .menu-grid{ grid-template-columns: 1fr 1fr; gap: 12px; }
+  .menu-card{ padding: 14px; }
+  .header-meta{ display: none; }
+}
+
+@media (max-width: 420px){
+  .menu-grid{ grid-template-columns: 1fr; }
+}
